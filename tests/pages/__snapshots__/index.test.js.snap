@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index.js renders properly 1`] = `
+<div
+  className="jsx-4167571301"
+>
+  <div
+    className="jsx-1288317031"
+  >
+    <header
+      className="jsx-1288317031"
+    >
+      <h1
+        className="jsx-1288317031"
+      >
+        Restaurantes, Bares y Cafés en Playas de Tijuana
+      </h1>
+    </header>
+  </div>
+</div>
+`;
