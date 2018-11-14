@@ -3,6 +3,11 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { ANALYZE } = process.env
 
 module.exports = {
+  exportPathMap: function() {
+    return {
+      '/': { page: '/' }
+    }
+  },
   webpack: (config, { dev }) => {
     if (dev) {
       config.module.rules.push({

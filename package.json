@@ -4,11 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "API_URL=http://0.0.0.0:3030/ next",
+    "dev": "API_URL=http://0.0.0.0:3030 next",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ext .js,.js .",
     "test": "yarn lint && jest",
+    "export": "yarn build && next export",
     "docker:build": "next build && docker build -t garciadiazjaime/website-news-v2 .",
     "docker:run": "docker run -d -p 49194:3000 -e --name news-v2 garciadiazjaime/website-news-v2",
     "docker:push": "docker push garciadiazjaime/website-news-v2",

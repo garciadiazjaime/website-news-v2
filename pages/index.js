@@ -60,8 +60,8 @@ const HomePage = ({ news }) => (
 )
 
 HomePage.getInitialProps = async () => {
-  const news = await getNews()
-  return { news: news.data }
+  const results = await getNews()
+  return { news: results.data.news }
 }
 
 export default HomePage
