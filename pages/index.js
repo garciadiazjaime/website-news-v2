@@ -20,7 +20,7 @@ const renderPlace = (news) => {
           </LazyLoad> : null
       }
       <div className="content">
-        <h2><a href={item.link} title={item.title} target="_blank">{item.title}</a></h2>
+        <h2><a href={item.link} title={item.title} target="_blank" rel="noopener noreferrer">{item.title}</a></h2>
         { item.source ? <p>{item.source}</p> : null }
         { renderDescription(item.description) }
       </div>
@@ -60,8 +60,8 @@ const HomePage = ({ news }) => (
 )
 
 HomePage.getInitialProps = async () => {
-  const news = await getNews()
-  return { news: news.data }
+  const { data: { news} } = await getNews()
+  return { news }
 }
 
 export default HomePage
