@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
-import ReactGA from 'react-ga';
 
 import MainHeader from './mainHeader'
 
 class Layout extends Component {
 
-  componentDidMount() {
-    ReactGA.initialize('UA-103145866-1');
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }
-
   render() {
+    const { children } = this.props
     return (
       <div>
         <Head>
@@ -25,9 +20,10 @@ class Layout extends Component {
 
         <MainHeader />
 
-        {this.props.children}
+        { children }
 
-        <style jsx global>{`
+        <style jsx global>
+          {`
           body {
             background-color: #f5f6f6;
             color: #000;

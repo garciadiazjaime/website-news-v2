@@ -1,12 +1,14 @@
-import fetch from 'isomorphic-unfetch'
+import getConfig from 'next/config'
 
-export const apiUrl = process && process.env && process.env.API_URL
+const { publicRuntimeConfig: { apiUrl } = {} } = getConfig()
 
 export async function getNews() {
   if (!apiUrl) {
-    return null
+    return []
   }
-  
-  const res = await fetch(`${apiUrl}/news?query={title,description,image,url,source}}`)
-  return await res.json()
+
+  const res = await fetch(`${apiUrl}/news?query={news{_id,title,description,image,url,source}}`)
+  const data = await res.json()
+  const { data: { news = [] } = {} } = data || {}
+  return news
 }

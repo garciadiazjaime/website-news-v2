@@ -5,7 +5,8 @@ const MainHeader = () => (
     <header>
       <h1>Los Titulares más recientes México</h1>
     </header>
-    <style jsx global>{`
+    <style jsx global>
+      {`
       header {
         background-color: #363c48;
       }
