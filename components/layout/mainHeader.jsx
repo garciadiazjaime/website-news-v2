@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const MainHeader = () => (
   <div>
@@ -20,6 +20,6 @@ const MainHeader = () => (
     `}
     </style>
   </div>
-)
+);
 
-export default MainHeader
+export default MainHeader;

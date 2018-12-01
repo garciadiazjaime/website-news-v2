@@ -1,20 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import Layout from '../components/layout/layout'
-import { getNews } from '../services/news'
+import Layout from '../components/layout/layout';
+import { getNews } from '../services/news';
 
 class HomePage extends Component {
-
   constructor(args) {
-    super(args)
+    super(args);
     this.state = {
-      news: []
-    }
+      news: [],
+    };
   }
 
   async componentDidMount() {
-    const news = await getNews()
-    this.setState({ news })
+    const news = await getNews();
+    this.setState({ news });
   }
 
   renderDescription(description) {
@@ -22,9 +21,9 @@ class HomePage extends Component {
       <p key={item.substring(0, 10).replace(/[^a-zA-Z]/gi, '')}>
         {item}
       </p>
-    ))
+    ));
   }
-  
+
   renderNews(news = []) {
     return news.length && news.map(item => (
       <div key={item._id} className="entity">
@@ -63,19 +62,19 @@ class HomePage extends Component {
         `}
         </style>
       </div>
-    )) || ':('
+    )) || ':(';
   }
-  
+
 
   render() {
-    const { news } = this.state
+    const { news } = this.state;
 
     return (
       <Layout>
         { this.renderNews(news) }
       </Layout>
-    )
+    );
   }
 }
 
-export default HomePage
+export default HomePage;

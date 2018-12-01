@@ -1,12 +1,12 @@
-const { API_URL } = process.env
+const { API_URL } = process.env;
 
 module.exports = {
-  exportPathMap: function() {
+  exportPathMap() {
     return {
-      '/': { page: '/' }
-    }
+      '/': { page: '/' },
+    };
   },
   publicRuntimeConfig: { // Will be available on both server and client
-    apiUrl: API_URL
-  }
-}
+    apiUrl: API_URL,
+  },
+};
