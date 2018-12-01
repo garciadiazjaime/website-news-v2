@@ -7,11 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "npm run build && next export",
-    "docker:build": "next build && docker build -t garciadiazjaime/website-news-v2 .",
-    "docker:run": "docker run -d -p 49194:3000 -e --name news-v2 garciadiazjaime/website-news-v2",
-    "docker:push": "docker push garciadiazjaime/website-news-v2",
-    "docker:pull": "docker pull garciadiazjaime/website-news-v2"
+    "export": "npm run build && next export"
   },
   "dependencies": {
     "next": "^7.0.2",
