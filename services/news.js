@@ -1,12 +1,6 @@
-import getConfig from 'next/config';
-
-const { publicRuntimeConfig: { apiUrl } = {} } = getConfig();
+const apiUrl = 'http://api-news.mintitmedia.com';
 
 export default async function getNews() {
-  if (!apiUrl) {
-    return [];
-  }
-
   const res = await fetch(`${apiUrl}/news?query={news{_id,title,description,image,url,source}}`);
   const data = await res.json();
   const { data: { news = [] } = {} } = data || {};

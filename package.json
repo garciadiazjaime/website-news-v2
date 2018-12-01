@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "API_URL=http://0.0.0.0:3030 next",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "export": "npm run build && next export",
