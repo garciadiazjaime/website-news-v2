@@ -3,9 +3,13 @@ import React, { Component } from 'react';
 import Layout from '../components/layout/layout';
 import getNews from '../services/news';
 
-const renderDescription = description => description.slice(0, 3).map(item => (
-  <p key={item.substring(0, 10).replace(/[^a-zA-Z]/gi, '')}>
-    {item}
+function getStringKey(text = '', index = 0) {
+  return `${text.substring(0, 10).replace(/[^a-zA-Z]/gi, '')}_${index}`;
+}
+
+const renderDescription = description => description.slice(0, 3).map((text, index) => (
+  <p key={getStringKey(text, index)}>
+    {text}
   </p>
 ));
 
@@ -15,9 +19,13 @@ const renderNews = (news = []) => (news.length ? news.map(item => (
         item.image && (<img src={item.image} alt={item.title} />)
       }
     <div className="content">
-      <h2><a href={item.link} title={item.title} target="_blank" rel="noopener noreferrer">{item.title}</a></h2>
-      { item.source && (<p>{item.source}</p>) }
+      <h2>
+        <a href={`/noticia?id=${item._id}`} title={item.title}>
+          {item.title}
+        </a>
+      </h2>
       { renderDescription(item.description) }
+      { item.source && (<p>{item.source}</p>) }
     </div>
     <style jsx global>
       {`
@@ -26,27 +34,28 @@ const renderNews = (news = []) => (news.length ? news.map(item => (
           padding: 2px 0 10px;
           background-color: #FFF;
         }
-        .content {
+        .entity content {
           padding: 0 5px;
         }
-        img {
+        .entity img {
           width: 100%;
           height: auto;
         }
-        p {
+        .entity p {
           margin: 0;
+          opacity: 0.8;
         }
-        a {
+        .entity a {
           color: #000;
           opacity: 0.7;
         }
-        h2 {
+        .entity h2 {
           margin: 5px 0;
         }
       `}
     </style>
   </div>
-)) : ':(');
+)) : 'cargando las noticias de hoy...');
 
 class HomePage extends Component {
   constructor(args) {
