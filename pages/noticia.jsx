@@ -11,17 +11,33 @@ function renderDescription(description = []) {
     </p>));
 }
 
+function getSentimentLabel(sentiment = 0) {
+  if (sentiment > 0) {
+    return 'Positiva :)';
+  }
+
+  if (sentiment < 0) {
+    return 'Negativa :(';
+  }
+
+  return 'Neutra -.-';
+}
+
 function renderSentiment(sentiment) {
-  return sentiment && (
+  return (
     <div>
-      <h3>Sentimiento:</h3>
-      {sentiment}
+      <h3>Califación:</h3>
+      {getSentimentLabel(sentiment)}
     </div>
   );
 }
 
 function renderFrequency(wordsFrequency = []) {
-  return wordsFrequency.length && (
+  if (!wordsFrequency.length) {
+    return null;
+  }
+
+  return (
     <div>
       <h3>Palabras frecuentes:</h3>
       {wordsFrequency.slice(0, 5).map(({ word, frequency }) => (
@@ -47,21 +63,28 @@ function renderAnalysis({ sentiment, wordsFrequency } = {}) {
 }
 
 function renderGoogleResults(results = []) {
-  return results.length && (
-    <ul>
-      {results.map(({ title, description, link }) => (
-        <li key={link}>
-          <div>
-            <a href={link} title={title} target="_blank" rel="noopener noreferrer">{title}</a>
-          </div>
-          <div>{description}</div>
-        </li>
-      ))}
-    </ul>);
+  if (!results.length) {
+    return null;
+  }
+
+  return (
+    <div>
+      <h3>Resultados en Google:</h3>
+      <ul>
+        {results.map(({ title, description, link }) => (
+          <li key={link}>
+            <div>
+              <a href={link} title={title} target="_blank" rel="noopener noreferrer">{title}</a>
+            </div>
+            <div>{description}</div>
+          </li>
+        ))}
+      </ul>
+    </div>);
 }
 
 function renderNews(news = []) {
-  if (!news.length) {
+  if (!news || !news.length) {
     return null;
   }
 
