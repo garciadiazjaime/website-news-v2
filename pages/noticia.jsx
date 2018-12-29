@@ -107,7 +107,7 @@ function renderNews(news = []) {
             {item.source}
           </a>
         </div>
-        { renderAnalysis(item.analysis)}
+        { renderAnalysis(item.analysis || {})}
         { renderGoogleResults(item.googleResults)}
       </div>
       <style jsx global>
