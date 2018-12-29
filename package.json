@@ -7,8 +7,10 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "npm run build && next export",
-    "deploy": "npm run export && gsutil -m rm -r gs://news.mintitmedia.com/* && gsutil -m cp -r ./out/. gs://news.mintitmedia.com/"
+    "export": "rm -rf ./out && npm run build && next export",
+    "google:clean": "gsutil -m rm -r gs://www.noticiasmexico.org/*",
+    "google:upload": "gsutil -m cp -r ./out/. gs://www.noticiasmexico.org/",
+    "deploy": "npm run export && npm run google:clean && npm run google:upload"
   },
   "dependencies": {
     "next": "^7.0.2",

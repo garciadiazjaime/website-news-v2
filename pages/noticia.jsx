@@ -151,7 +151,7 @@ class HomePage extends Component {
 
   async componentDidMount() {
     const { router: { query: { id: newsId } } } = this.props;
-    const news = await getNews(newsId);
+    const news = await getNews('single');
 
     this.setState({ news });
   }
