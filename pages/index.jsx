@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LazyLoad from 'react-lazyload';
 
 import Layout from '../components/layout/layout';
 import getNews from '../services/news';
@@ -16,7 +17,7 @@ const renderDescription = description => description.slice(0, 3).map((text, inde
 const renderNews = (news = []) => (news.length ? news.map(item => (
   <div key={item._id} className="entity">
     {
-        item.image && (<img src={item.image} alt={item.title} />)
+        item.image && (<LazyLoad height="100%"><img src={item.image} alt={item.title} /></LazyLoad>)
       }
     <div className="content">
       <h2>
