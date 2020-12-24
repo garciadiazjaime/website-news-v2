@@ -10,6 +10,8 @@ export default () => (
     <a href="https://www.garitacenter.com" title="Reporte de Garitas San Diego / Tijuana">Reporte de Garitas</a>
     <br />
     <a href="http://www.playami.com" title="Qué comer en Playas de Tijuana">Qué comer en Playas</a>
+    <br />
+    <a href="https://www.feedmetj.com/" title="¿Qué comer en Tijuana?">¿Qué comer en Tijuana?</a>
     <style jsx>
       {`
       div {
