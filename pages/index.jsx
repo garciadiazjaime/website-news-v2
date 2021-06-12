@@ -14,7 +14,7 @@ const renderDescription = description => description.slice(0, 3).map((text, inde
   </p>
 ));
 
-const renderNews = (news = []) => (news.length ? news.map(item => (
+const renderNews = (news = []) => (Array.isArray(news) && news.length ? news.map(item => (
   <div key={item._id} className="entity">
     {
         item.image && (<LazyLoad height="100%"><img src={item.image} alt={item.title} /></LazyLoad>)
